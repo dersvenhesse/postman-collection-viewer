@@ -1,44 +1,9 @@
-# default
+# postman-collection-viewer
 
-## Project setup
+A simple Vuetify-based page to upload and display exported collection files from Postman directly in the browser.
 
-```
-# yarn
-yarn
+> **NOTE**: The project currently under development and doesn't do much yet.
 
-# npm
-npm install
+## Setup
 
-# pnpm
-pnpm install
-```
-
-### Compiles and hot-reloads for development
-
-```
-# yarn
-yarn dev
-
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-```
-
-### Compiles and minifies for production
-
-```
-# yarn
-yarn build
-
-# npm
-npm run build
-
-# pnpm
-pnpm build
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://vitejs.dev/config/).
+Run `npm install` and use either `npm run dev` for development or `npm run build` for production.
