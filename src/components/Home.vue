@@ -5,8 +5,7 @@
     </v-form>
   </v-container>
   <v-container v-if="data.collection">
-    <h2>{{ data.collection.info.name }}</h2>
-    <h4>{{ data.collection.info.description }}</h4>
+    <Collection :collection="data.collection"/>
   </v-container>
   <v-container v-if="!data.collection">
     <v-alert border="start" border-color="primary" icon="mdi-information" text="Nothing to show yet, please choose a collection file above."></v-alert>
@@ -16,17 +15,17 @@
 <script setup>
 import {reactive} from 'vue'
 
+import {Collection as PostmanCollection, ItemGroup as PostmanItemGroup, Item as PostmanItem} from 'postman-collection'
+
+import Collection from '@/components/Collection.vue'
+
 let data = reactive({collection: 0});
 
 function changedCollectionFile(event) {
   let reader = new FileReader();
   reader.onload = function (e) {
-    extractData(JSON.parse(e.target.result));
+    data.collection = new PostmanCollection(JSON.parse(e.target.result));
   };
   reader.readAsText(event.target.files[0]);
-}
-
-function extractData(collection) {
-  data.collection = collection;
 }
 </script>

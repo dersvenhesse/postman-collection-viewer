@@ -1,6 +1,7 @@
 // Plugins
 import vue from '@vitejs/plugin-vue'
 import vuetify, {transformAssetUrls} from 'vite-plugin-vuetify'
+import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 // Utilities
 import {defineConfig} from 'vite'
@@ -15,6 +16,15 @@ export default defineConfig({
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
       autoImport: true,
+    }),
+    nodePolyfills({
+      globals: {
+        Buffer: true,
+        global: true,
+        stream: true,
+        path: true
+      },
+      protocolImports: true,
     }),
   ],
   define: {'process.env': {}},
