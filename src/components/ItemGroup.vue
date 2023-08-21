@@ -1,12 +1,12 @@
 <template>
     <div v-for="i in item.items.all()">
-        <ItemGroup v-if="isItemGroup(i)" :item="i"/>
+        <ItemGroup v-if="isItemGroup(i)" :item="i" />
         <Request v-else :item="i" />
     </div>
 </template>
   
 <script setup>
-import {Collection as PostmanCollection, ItemGroup as PostmanItemGroup, Item as PostmanItem} from 'postman-collection'
+import { Collection as PostmanCollection, ItemGroup as PostmanItemGroup, Item as PostmanItem } from 'postman-collection'
 
 import Request from '@/components/Request.vue'
 

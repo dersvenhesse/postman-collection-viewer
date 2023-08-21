@@ -1,30 +1,37 @@
 <template>
   <v-container>
     <v-form>
-      <v-file-input show-size v-bind:clearable="false" label="Choose a collection file" accept="application/json" prepend-icon="mdi-file-code-outline" @change="changedCollectionFile"></v-file-input>
+      <v-file-input show-size v-bind:clearable="false" label="Choose a collection file" accept="application/json"
+        prepend-icon="mdi-file-code-outline" @change="changedCollectionFile"></v-file-input>
     </v-form>
   </v-container>
   <v-container v-if="data.collection">
-    <Collection :collection="data.collection"/>
+    <Collection :collection="data.collection" />
   </v-container>
   <v-container v-if="!data.collection">
-    <v-alert border="start" border-color="primary" icon="mdi-information" text="Nothing to show yet, please choose a collection file above."></v-alert>
+    <v-alert border="start" border-color="primary" icon="mdi-information" :text="data.information"></v-alert>
   </v-container>
-</template>
+</template> 
 
 <script setup>
-import {reactive} from 'vue'
+import { reactive } from 'vue'
 
-import {Collection as PostmanCollection, ItemGroup as PostmanItemGroup, Item as PostmanItem} from 'postman-collection'
+import { Collection as PostmanCollection, ItemGroup as PostmanItemGroup, Item as PostmanItem } from 'postman-collection'
 
 import Collection from '@/components/Collection.vue'
 
-let data = reactive({collection: 0});
+let data = reactive({ collection: 0, information: "Nothing to show yet, please choose a collection file above." });
 
 function changedCollectionFile(event) {
   let reader = new FileReader();
+  reader.onloadstart = function (e) {
+    data.collection = 0;
+    data.information = "Reading collection file..."
+  }
   reader.onload = function (e) {
-    data.collection = new PostmanCollection(JSON.parse(e.target.result));
+    if (e.target.result.includes("_postman_id")) {
+      data.collection = new PostmanCollection(JSON.parse(e.target.result));
+    }
   };
   reader.readAsText(event.target.files[0]);
 }

@@ -6,11 +6,11 @@
         <strong>postman-collection-viewer</strong></v-app-bar-title>
     </v-app-bar>
     <v-main>
-      <Home/>
+      <Home />
     </v-main>
   </v-app>
 </template>
 
 <script setup>
 import Home from '@/components/Home.vue'
-</script>
+</script> 
