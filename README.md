@@ -4,7 +4,9 @@ A simple Vuetify-based page to upload and display exported collection files from
 
 The latest version ist deployed as GitHub Page: [dersvenhesse.github.io/postman-collection-viewer](https://dersvenhesse.github.io/postman-collection-viewer/).
 
-<img src="https://raw.githubusercontent.com/dersvenhesse/postman-collection-viewer/main/screenshot.png" width="640" />
+<p align="center">
+  <img src="https://raw.githubusercontent.com/dersvenhesse/postman-collection-viewer/main/screenshot.png" width="640" />
+</p>
 
 ## Setup
 
