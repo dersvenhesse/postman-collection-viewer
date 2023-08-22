@@ -7,10 +7,10 @@
             {{ item.request.url }}
         </v-card-title>
         <v-card-subtitle>
-            {{ data.parents }} → {{ item.name }}
+            <template v-if="data.parents">{{ data.parents }} →</template> {{ item.name }}
         </v-card-subtitle>
         <v-card-text>
-            <div class="text-subtitle-2">headers</div>
+            <div class="text-subtitle-2" v-if="item.request.headers.members.length">headers</div>
             <pre class="text-body-2" v-for="h in item.request.headers.members">{{ h }}</pre>
 
             <div v-if="item.request.body && item.request.body.raw" class="mt-4">
@@ -18,9 +18,9 @@
                 <highlightjs autodetect :code="item.request.body.raw" />
             </div>
         </v-card-text>
-        <v-card-actions v-if="item.events.all().filter(e => e.script.exec.join('')).length">
+        <v-card-actions class="pt-0" v-if="item.events.all().filter(e => e.script.exec.join('')).length">
             <v-spacer />
-            <v-btn :icon="show.value ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show.value = !show.value"></v-btn>
+            <v-btn size="small" :icon="show.value ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show.value = !show.value"></v-btn>
         </v-card-actions>
         <v-expand-transition>
             <template v-for="e in item.events.all()">
