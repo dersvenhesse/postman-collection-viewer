@@ -4,9 +4,9 @@
       <v-app-bar-title>
         <v-app-bar-nav-icon icon="mdi-rocket-launch" href="./"></v-app-bar-nav-icon>
         <strong>postman-collection-viewer</strong></v-app-bar-title>
-        <v-spacer></v-spacer>
-        <v-btn icon="mdi-github" href="https://github.com/dersvenhesse/postman-collection-viewer" target="_blank"></v-btn>
-        <v-btn icon="mdi-theme-light-dark" @click="toggleTheme"></v-btn>
+      <v-spacer></v-spacer>
+      <v-btn icon="mdi-github" href="https://github.com/dersvenhesse/postman-collection-viewer" target="_blank"></v-btn>
+      <v-btn icon="mdi-theme-light-dark" @click="toggleTheme"></v-btn>
     </v-app-bar>
     <v-main>
       <Home />
@@ -23,6 +23,10 @@ const theme = useTheme()
 
 var pcvTheme = localStorage.getItem('pcv_theme');
 if (pcvTheme) {
+  if (pcvTheme == 'dark') {
+    import('highlight.js/styles/stackoverflow-dark.css');
+  }
+
   theme.global.name.value = pcvTheme;
 }
 

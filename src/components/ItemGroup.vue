@@ -6,17 +6,10 @@
 </template>
   
 <script setup>
-import { Collection as PostmanCollection, ItemGroup as PostmanItemGroup, Item as PostmanItem } from 'postman-collection'
-
 import Request from '@/components/Request.vue'
 
-const props = defineProps(['item']);
+import { isItemGroup } from '../mixins/itemMixin'
 
-function isItemGroup(obj) {
-    return PostmanItemGroup.isItemGroup(obj);
-}
-function isItem(obj) {
-    return PostmanItem.isItem(obj);
-}
+const props = defineProps(['item']);
 </script>
   

@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-form>
-      <v-file-input show-size v-bind:clearable="false" label="Choose a collection file" accept="application/json"
-        prepend-icon="mdi-file-code-outline" @change="changedCollectionFile"></v-file-input>
+      <v-file-input v-bind:clearable="false" label="Choose a collection file" accept="application/json"
+        prepend-icon="mdi-file-code-outline" @change="changedCollectionFile" show-size hide-details></v-file-input>
     </v-form>
   </v-container>
   <v-container v-if="data.collection">
@@ -16,7 +16,7 @@
 <script setup>
 import { reactive } from 'vue'
 
-import { Collection as PostmanCollection, ItemGroup as PostmanItemGroup, Item as PostmanItem } from 'postman-collection'
+import { Collection as PostmanCollection } from 'postman-collection'
 
 import Collection from '@/components/Collection.vue'
 

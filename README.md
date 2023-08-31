@@ -12,7 +12,10 @@ The latest version ist deployed as GitHub Page: [dersvenhesse.github.io/postman-
 
 Run `npm install` and use either `npm run dev` for development or `npm run build` for production.
 
+## Known Issues
+
+* Theme changes (to dark or light) don't apply to code blocks until reloading.
+
 ## Notes
 
-* The project currently under development and doesn't do much yet except flat-listing all request with their headers and body.
-* The code has inspirations from this project: [gopalkildoliya/postman-collection-viewer](https://github.com/gopalkildoliya/postman-collection-viewer).
+* The code has inspirations from [gopalkildoliya/postman-collection-viewer](https://github.com/gopalkildoliya/postman-collection-viewer).
