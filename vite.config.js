@@ -1,18 +1,18 @@
 // Plugins
 import vue from '@vitejs/plugin-vue'
-import vuetify, {transformAssetUrls} from 'vite-plugin-vuetify'
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
 import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 // Utilities
-import {defineConfig} from 'vite'
-import {fileURLToPath, URL} from 'node:url'
+import { defineConfig } from 'vite'
+import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "/postman-collection-viewer/",
   plugins: [
     vue({
-      template: {transformAssetUrls}
+      template: { transformAssetUrls }
     }),
     // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
     vuetify({
@@ -28,7 +28,10 @@ export default defineConfig({
       protocolImports: true,
     }),
   ],
-  define: {'process.env': {}},
+  build: {
+    chunkSizeWarningLimit: 1500,
+  },
+  define: { 'process.env': {} },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
