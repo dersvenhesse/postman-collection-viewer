@@ -21,17 +21,17 @@ import Home from '@/components/Home.vue'
 
 const theme = useTheme()
 
-var pcvTheme = localStorage.getItem('pcv_theme');
+var pcvTheme = localStorage.getItem('pcv_theme')
 if (pcvTheme) {
   if (pcvTheme == 'dark') {
-    import('highlight.js/styles/stackoverflow-dark.css');
+    import('highlight.js/styles/stackoverflow-dark.css')
   }
 
   theme.global.name.value = pcvTheme;
 }
 
 function toggleTheme() {
-  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark';
-  localStorage.setItem('pcv_theme', theme.global.name.value);
+  theme.global.name.value = theme.global.current.value.dark ? 'light' : 'dark'
+  localStorage.setItem('pcv_theme', theme.global.name.value)
 }
 </script> 

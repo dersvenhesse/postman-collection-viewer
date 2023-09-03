@@ -1,5 +1,5 @@
 <template>
-    <v-card class="my-4">
+    <v-card class="my-4" v-if="inFilter()">
         <v-card-title>
             <strong :class="'pa-2 mr-2 rounded-lg text-uppercase method method-' + item.request.method.toLowerCase()">
                 {{ item.request.method }}
@@ -20,11 +20,12 @@
         </v-card-text>
         <v-card-actions class="pt-0" v-if="item.events.all().filter(e => e.script.exec.join('')).length">
             <v-spacer />
-            <v-btn size="small" :icon="show.value ? 'mdi-chevron-up' : 'mdi-chevron-down'" @click="show.value = !show.value"></v-btn>
+            <v-btn size="small" :icon="showEvents.value ? 'mdi-chevron-up' : 'mdi-chevron-down'"
+                @click="showEvents.value = !showEvents.value"></v-btn>
         </v-card-actions>
         <v-expand-transition>
             <template v-for="e in item.events.all()">
-                <div v-show="show.value">
+                <div v-show="showEvents.value">
                     <v-card-text class="pt-0">
                         <div v-if="e.script && e.script.exec.join('').length">
                             <div class="text-subtitle-2">{{ e.listen }}</div>
@@ -40,15 +41,21 @@
 <script setup>
 import { reactive } from 'vue'
 
-let data = reactive({ parents: "" });
-let show = reactive({ value: false });
+let data = reactive({ parents: "" })
+let showEvents = reactive({ value: false })
 
-const props = defineProps(['item']);
+const props = defineProps(['item', 'filter'])
 
 let parentsList = []
-props.item.forEachParent(p => parentsList.push(p.name));
-
+props.item.forEachParent(p => parentsList.push(p.name))
 data.parents = parentsList.reverse().join(" → ")
+
+function inFilter() {
+    if (!props.filter) {
+        return true
+    }
+    return props.item.name.toLowerCase().includes(props.filter.toLowerCase());
+}
 </script>
   
 <style scoped>
