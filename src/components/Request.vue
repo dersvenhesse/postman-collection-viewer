@@ -13,6 +13,9 @@
             <div class="text-subtitle-2" v-if="item.request.headers.members.length">headers</div>
             <pre class="text-body-2" v-for="h in item.request.headers.members">{{ h }}</pre>
 
+            <div class="text-subtitle-2" v-if="item.getAuth()">auth</div>
+            <pre class="text-body-2" v-if="item.getAuth()">{{ item.getAuth().type }}</pre>
+
             <div v-if="item.request.body && item.request.body.raw" class="mt-4">
                 <div class="text-subtitle-2">body</div>
                 <highlightjs autodetect :code="item.request.body.raw" />
@@ -24,16 +27,16 @@
                 @click="showEvents.value = !showEvents.value"></v-btn>
         </v-card-actions>
         <v-expand-transition>
-            <template v-for="e in item.events.all()">
-                <div v-show="showEvents.value">
+            <div v-show="showEvents.value">
+                <template v-for="e in item.events.all()">
                     <v-card-text class="pt-0">
                         <div v-if="e.script && e.script.exec.join('').length">
                             <div class="text-subtitle-2">{{ e.listen }}</div>
                             <highlightjs autodetect :code="e.script.exec.join('\n')" :class="'type-' + e.listen" />
                         </div>
                     </v-card-text>
-                </div>
-            </template>
+                </template>
+            </div>
         </v-expand-transition>
     </v-card>
 </template>

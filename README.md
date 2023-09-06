@@ -8,19 +8,20 @@ The latest version ist deployed as GitHub Page: [dersvenhesse.github.io/postman-
   <img src="https://raw.githubusercontent.com/dersvenhesse/postman-collection-viewer/main/screenshot.png" width="640" />
 </p>
 
-## Setup
-
-Run `npm install` and use either `npm run dev` for development or `npm run build` for production.
-
 ## Features
 
 * Listing requests from an uploaded collection file, with the following information per request:
-  * method and url
-  * path (each parent folders name and the requests name)
-  * headers
-  * body
-  * events (e.g. test, prerequest, postrequest) in a fold-out
+  * HTTP method and URL
+  * Path (each parents folder name and the requests name)
+  * Headers
+  * Auth type
+  * Body
+  * Events (e.g. test, prerequest, postrequest) in a fold-out
 * Filtering listed requests by name
+
+## Setup
+
+Run `npm install` and use either `npm run dev` for local development or `npm run build` for production build.
 
 ## Known Issues
 
