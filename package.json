@@ -12,7 +12,7 @@
     "postman-collection": "^4.2.1",
     "roboto-fontface": "*",
     "vue": "^3.2.0",
-    "vue-markdown-render": "^2.1.0",
+    "vue-markdown-render": "^2.1.1",
     "vuetify": "^3.3.21",
     "webfontloader": "^1.0.0"
   },
