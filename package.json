@@ -11,7 +11,7 @@
     "@mdi/font": "7.3.67",
     "postman-collection": "^4.3.0",
     "roboto-fontface": "*",
-    "vue": "^3.3.13",
+    "vue": "^3.4.15",
     "vue-markdown-render": "^2.1.1",
     "vuetify": "^3.4.9",
     "webfontloader": "^1.0.0"
