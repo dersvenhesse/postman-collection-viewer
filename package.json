@@ -13,7 +13,7 @@
     "roboto-fontface": "*",
     "vue": "^3.4.26",
     "vue-markdown-render": "^2.1.1",
-    "vuetify": "^3.5.17",
+    "vuetify": "^3.6.3",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
