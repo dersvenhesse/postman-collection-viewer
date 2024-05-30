@@ -1,6 +1,7 @@
 {
   "name": "postman-collection-viewer",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,13 +14,13 @@
     "roboto-fontface": "*",
     "vue": "^3.4.27",
     "vue-markdown-render": "^2.2.1",
-    "vuetify": "^3.6.7",
+    "vuetify": "^3.6.8",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.6.2",
-    "vite": "^4.5.3",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.2.12",
     "vite-plugin-node-polyfills": "^0.22.0",
-    "vite-plugin-vuetify": "^1.0.0"
+    "vite-plugin-vuetify": "^2.0.3"
   }
 }
