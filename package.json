@@ -10,7 +10,7 @@
   "dependencies": {
     "@highlightjs/vue-plugin": "^2.1.0",
     "@mdi/font": "7.4.47",
-    "postman-collection": "^5.0.0",
+    "postman-collection": "^5.0.1",
     "roboto-fontface": "*",
     "vue": "^3.5.13",
     "vue-markdown-render": "^2.2.1",
