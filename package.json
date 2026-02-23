@@ -14,7 +14,7 @@
     "roboto-fontface": "*",
     "vue": "^3.5.28",
     "vue-markdown-render": "^2.3.0",
-    "vuetify": "^3.11.8",
+    "vuetify": "^3.12.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {
